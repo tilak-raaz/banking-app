@@ -106,7 +106,7 @@ export default function Dashboard() {
             Welcome back, {session.user.name?.split(" ")[0] || "User"}!
           </h1>
           <p className="text-gray-600 mt-1">
-            Here's what's happening with your account today.
+            Here&apos;s what&apos;s happening with your account today.
           </p>
         </div>
 

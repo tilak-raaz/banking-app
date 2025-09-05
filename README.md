@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏦 SecureBank - Professional Banking Application
 
-## Getting Started
+A modern, full-stack banking application built with Next.js 15, featuring OAuth authentication, realistic demo data, and professional UI/UX design. Perfect for showcasing technical skills in interviews.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**[View Live Application](https://your-deployed-url.vercel.app)** *(Will be available after Vercel deployment)*
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 🔐 Authentication & Security
+- **Google OAuth** integration with NextAuth.js
+- **JWT sessions** for secure state management
+- **Route protection** with middleware
+- **Real user data** integration (names, emails)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🏛️ Banking Features
+- **Professional Dashboard** with account overview
+- **Realistic Account Balances** ($5,420.75, $8,750.25, etc.)
+- **Complete Transaction Histories** with categories
+- **Multiple Account Types** (Checking, Savings, Premium, Student)
+- **User Profile Management** with banking information
 
-## Learn More
+### 🎨 UI/UX
+- **Modern Design** with Tailwind CSS 4
+- **Responsive Layout** for all devices
+- **Professional Banking Interface**
+- **Clean, Accessible Components**
+- **Interactive Dashboard Elements**
 
-To learn more about Next.js, take a look at the following resources:
+### 🗄️ Database & Backend
+- **Prisma ORM** for database management
+- **SQLite** for development (easily adaptable to PostgreSQL)
+- **Automated Profile Assignment** for new users
+- **Seeded Demo Data** for instant functionality
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Category | Technologies |
+|----------|-------------|
+| **Frontend** | Next.js 15, React 19, Tailwind CSS 4 |
+| **Authentication** | NextAuth.js, Google OAuth |
+| **Database** | Prisma ORM, SQLite |
+| **Backend** | Next.js API Routes |
+| **UI Components** | Custom components with Lucide icons |
+| **Deployment** | Vercel (recommended) |
 
-## Deploy on Vercel
+## 🚀 Quick Start
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Prerequisites
+- Node.js 18+ and npm
+- Google OAuth credentials
+- Git
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/tilak-raaz/banking-app.git
+   cd banking-app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env.local
+   ```
+   
+   Add your credentials to `.env.local`:
+   ```env
+   NEXTAUTH_SECRET=your-secret-key
+   NEXTAUTH_URL=http://localhost:3000
+   GOOGLE_CLIENT_ID=your-google-client-id
+   GOOGLE_CLIENT_SECRET=your-google-client-secret
+   DATABASE_URL="file:./dev.db"
+   ```
+
+4. **Set up the database**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   npm run db:seed
+   ```
+
+5. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+6. **Open your browser**
+   Visit [http://localhost:3000](http://localhost:3000)
+
+## 🔧 Configuration
+
+### Google OAuth Setup
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select existing
+3. Enable Google+ API
+4. Create OAuth 2.0 credentials
+5. Add authorized redirect URIs:
+   - `http://localhost:3000/api/auth/callback/google` (development)
+   - `https://your-domain.vercel.app/api/auth/callback/google` (production)
+
+## 🚀 Deployment to Vercel
+
+1. **Connect to Vercel**
+   - Visit [vercel.com](https://vercel.com)
+   - Import your GitHub repository
+   - Configure environment variables
+
+2. **Environment Variables**
+   Add these to Vercel dashboard:
+   ```
+   NEXTAUTH_SECRET
+   NEXTAUTH_URL
+   GOOGLE_CLIENT_ID
+   GOOGLE_CLIENT_SECRET
+   DATABASE_URL
+   ```
+
+## 👨‍💻 Developer
+
+**Tilak Kumar**
+- GitHub: [@tilak-raaz](https://github.com/tilak-raaz)
+
+---
+
+### 🌟 Star this repository if you found it helpful!
