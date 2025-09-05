@@ -35,12 +35,14 @@ This guide will help you deploy your SecureBank application to Vercel with a pro
 ## 🚀 Vercel Deployment Steps
 
 ### 1. Import Repository
+
 1. Go to [vercel.com](https://vercel.com)
 2. Click "New Project"
 3. Import `tilak-raaz/banking-app`
 4. Configure project settings
 
 ### 2. Environment Variables
+
 Add these in Vercel Dashboard → Settings → Environment Variables:
 
 ```env
@@ -52,19 +54,23 @@ DATABASE_URL=your-postgresql-connection-string
 ```
 
 ### 3. Google OAuth Configuration
+
 Update your Google OAuth settings:
+
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Select your project → APIs & Services → Credentials
 3. Edit your OAuth 2.0 Client
-4. Add authorized redirect URI: 
+4. Add authorized redirect URI:
    ```
    https://your-app-name.vercel.app/api/auth/callback/google
    ```
 
 ### 4. Database Migration
+
 After first deployment, run database migration:
 
 1. **In Vercel Dashboard → Functions → Terminal** (or locally):
+
    ```bash
    npx prisma generate
    npx prisma db push
@@ -92,11 +98,13 @@ Your `package.json` already includes the correct build scripts:
 ## ✅ Post-Deployment Checklist
 
 1. **Test OAuth Login**
+
    - Visit your deployed app
    - Try Google OAuth sign-in
    - Verify profile creation
 
 2. **Check Database**
+
    - Verify users are being created
    - Confirm banking profiles are assigned
    - Test transaction data
@@ -108,28 +116,35 @@ Your `package.json` already includes the correct build scripts:
 ## 🐛 Common Issues & Solutions
 
 ### Issue: OAuth Redirect Mismatch
+
 **Solution**: Ensure redirect URI in Google Console matches your Vercel URL exactly
 
 ### Issue: Database Connection Error
+
 **Solution**: Double-check `DATABASE_URL` format and credentials
 
 ### Issue: Environment Variables Not Working
-**Solution**: 
+
+**Solution**:
+
 - Redeploy after adding environment variables
 - Check variable names match exactly
 
 ### Issue: Prisma Client Not Generated
+
 **Solution**: Ensure `postinstall` script runs: `"postinstall": "prisma generate"`
 
 ## 📊 Environment-Specific Configuration
 
 ### Development (.env.local)
+
 ```env
 DATABASE_URL="file:./dev.db"
 NEXTAUTH_URL=http://localhost:3000
 ```
 
 ### Production (Vercel)
+
 ```env
 DATABASE_URL="postgresql://user:password@host:port/database"
 NEXTAUTH_URL=https://your-app.vercel.app
@@ -140,6 +155,7 @@ NEXTAUTH_URL=https://your-app.vercel.app
 When you update the schema:
 
 1. **Development**:
+
    ```bash
    npx prisma db push
    ```
@@ -158,6 +174,7 @@ When you update the schema:
 ## 📈 Monitoring & Analytics
 
 Consider adding:
+
 - **Vercel Analytics**: Built-in performance monitoring
 - **Sentry**: Error tracking
 - **LogRocket**: User session replay
